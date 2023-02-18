@@ -1,0 +1,15 @@
+@use "styles/mixins" as *;
+
+.search_section {
+    @include container;
+    padding-bottom: 4rem;
+    & > h2 {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .anime_container {
+        @include flexBox;
+        flex-wrap: wrap;
+        gap: 4rem;
+    }
+}

@@ -1,0 +1,100 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./keyframes" as *;
+@use "./breakpoints" as *;
+
+:root {
+    scrollbar-color: $primary-color $primary-bg;
+    scrollbar-width: thin;
+}
+
+.root {
+    background-color: $primary-bg;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 0.8rem;
+    &-track {
+        background-color: $primary-bg;
+    }
+    &-thumb {
+        background-color: $primary-color;
+        &:hover {
+            background-color: $primary-hover-color;
+        }
+    }
+}
+
+input,
+button {
+    border: none;
+    outline-color: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+button {
+    padding: 1rem 3rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    background-color: $primary-color;
+    transition: background-color 200ms ease;
+    &:hover {
+        background-color: $primary-hover-color;
+    }
+}
+
+.page {
+    opacity: 0;
+    animation: fade_in 1s ease forwards;
+}
+
+// swiper classes
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    position: relative;
+    margin-top: 1.5rem;
+    & > .swiper-pagination-bullet {
+        background-color: #d5d5d5;
+        &.swiper-pagination-bullet-active {
+            // background-color: #ffffff;
+            background-color: #ff0000;
+        }
+    }
+}
+
+// ---------- pagination styles ----------
+.pagination {
+    @include flexBox;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    color: $off-white;
+    font-weight: 600;
+    & > li {
+        margin-top: 2rem;
+        & > a {
+            padding: 1rem 2rem;
+            background-color: $pagination-bg;
+            &:hover {
+                color: $pagination-active-color;
+            }
+            @include breakpoints(responsive-pagination) {
+                font-size: 1.4rem;
+                padding: 1rem 1.25rem;
+            }
+        }
+        &.active_page,
+        &.active_link__page {
+            & > a {
+                background-color: $pagination-active-color;
+                color: $pagination-bg;
+                font-weight: 600;
+            }
+        }
+    }
+}
+// ---------- pagination styles ----------

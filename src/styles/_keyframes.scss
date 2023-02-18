@@ -1,0 +1,25 @@
+@use "./variables" as *;
+
+@keyframes rotate {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow($sharingan-color 0px 0px 5px) drop-shadow($sharingan-color 0 0px 5px);
+    }
+    to {
+        filter: drop-shadow($sharingan-color 0px 0px 15px) drop-shadow($sharingan-color 0 0px 15px);
+    }
+}
+
+@keyframes fade_in {
+    to {
+        opacity: 1;
+    }
+}

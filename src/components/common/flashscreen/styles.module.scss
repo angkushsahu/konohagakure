@@ -1,0 +1,51 @@
+@use "styles/mixins" as *;
+@use "styles/variables" as *;
+@use "styles/keyframes" as *;
+
+.flash {
+    min-height: 100vh;
+    @include flexBox;
+    animation: fade_out 1s 3s ease-out forwards;
+    & > svg {
+        $timing: 1.5s;
+        animation: glow $timing $timing linear infinite forwards alternate-reverse, rotate 5s $timing + 200ms linear forwards infinite;
+        @include setDimension(20rem);
+        & .border_circle {
+            @include addStroke(3510, #000000, #000000, 45);
+            animation: outer_border $timing linear forwards;
+        }
+        & .inner_circle {
+            stroke: $sharingan-color;
+        }
+        & .choko_tomoe__circle {
+            @include addStroke(360, #000000, #000000, 10);
+            animation: outer_border $timing linear forwards, fill_color $timing $timing linear forwards;
+        }
+        & .choko_tomoe__extended {
+            @include addStroke(380, #000000, #000000, 10);
+            animation: outer_border $timing linear forwards, fill_color $timing $timing linear forwards;
+        }
+        & .eyeball {
+            animation: fill_color $timing linear forwards;
+        }
+    }
+}
+
+@keyframes outer_border {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fill_color {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: #000000;
+    }
+}
+@keyframes fade_out {
+    to {
+        opacity: 0;
+    }
+}

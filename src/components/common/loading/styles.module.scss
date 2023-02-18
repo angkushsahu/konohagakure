@@ -1,0 +1,15 @@
+@use "styles/mixins" as *;
+@use "styles/keyframes" as *;
+
+.loading_page {
+    min-height: 100vh;
+    @include flexBox;
+}
+.loading_component {
+    margin: 1rem auto;
+    width: fit-content;
+    img {
+        @include setDimension(20rem);
+        animation: glow 1500ms linear infinite forwards alternate-reverse, rotate 3s linear forwards infinite;
+    }
+}

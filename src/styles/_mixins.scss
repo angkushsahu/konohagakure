@@ -1,0 +1,25 @@
+@mixin flexBox($jc: center, $ai: center) {
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+}
+
+@mixin container($color: transparent, $padding: 2rem) {
+    max-width: 130rem;
+    margin: 0 auto;
+    box-shadow: 0 0 0 100vmax $color;
+    clip-path: inset(0 -100vmax);
+    padding: $padding;
+}
+
+@mixin setDimension($dimension: 1rem) {
+    height: $dimension;
+    width: $dimension;
+}
+
+@mixin addStroke($dimension: 1rem, $initial_color: #000000, $color: #000000, $width: 1rem) {
+    stroke-dasharray: $dimension;
+    stroke-dashoffset: $dimension;
+    stroke: $initial_color;
+    stroke-width: $width;
+}

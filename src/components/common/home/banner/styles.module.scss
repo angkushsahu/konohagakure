@@ -1,0 +1,51 @@
+@use "styles/mixins" as *;
+@use "styles/breakpoints" as *;
+
+.banner {
+    position: relative;
+    isolation: isolate;
+    min-height: 70rem;
+    padding: 2rem;
+    @include flexBox;
+    flex-direction: column;
+    gap: 4rem;
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+    & > .banner_bg {
+        position: absolute;
+        inset: 0;
+        left: 50%;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-50%);
+        z-index: -2;
+    }
+    & > .headline {
+        max-width: 60rem;
+        & > .quote {
+            width: 100%;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+        & > .speaker {
+            text-align: right;
+            font-weight: 800;
+            font-size: 1.8rem;
+        }
+    }
+    @include breakpoints(responsive-bg-1) {
+        min-height: 50rem;
+    }
+    @include breakpoints(responsive-bg-2) {
+        min-height: 20rem;
+    }
+}
